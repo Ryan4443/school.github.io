@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sugarcane Project | By Ryan and Adarsh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       Liquid Glass & Apple-Inspired Architecture (Ultra-Performance)
+       ========================================================================== */
+    :root {
+      --bg-current: #0c3320;
+      --glass-panel: rgba(16, 52, 34, 0.62);
+      --glass-panel-light: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.24);
+      --glass-glow: rgba(52, 211, 153, 0.45);
+      --glass-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), 0 20px 50px rgba(0, 0, 0, 0.35);
+      
+      --cane-green: #10b981;
+      --cane-glow: #34d399;
+      --cane-light: #a7f3d0;
+      --cane-emerald: #059669;
+      --accent-gold: #fbbf24;
+      --text-main: #ffffff;
+      --text-dim: #94a3b8;
+      
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-current);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background-color 0.6s var(--ease-apple);
+    }
+
+    /* Vibrant Breathing Ambient Canopy Backdrop */
+    .ambient-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle at 50% 15%, rgba(52, 211, 153, 0.35) 0%, transparent 65%),
+                  radial-gradient(circle at 85% 20%, rgba(251, 191, 36, 0.22) 0%, transparent 50%),
+                  radial-gradient(circle at 15% 75%, rgba(16, 185, 129, 0.28) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 85%, rgba(163, 230, 53, 0.2) 0%, transparent 55%);
+      animation: ambientShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientShift {
+      0% {
+        transform: scale(1) translateY(0);
+        opacity: 0.85;
+      }
+      50% {
+        transform: scale(1.05) translateY(-15px);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.02) translateY(10px);
+        opacity: 0.9;
+      }
+    }
+
+    /* Header Navigation - Pure Liquid Glass */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(8, 36, 22, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 3.5rem;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .authors-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+    }
+
+    .authors-row .project-pill {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+    }
+
+    .project-subtitle {
+      font-size: 0.75rem;
+      color: var(--cane-light);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.3s var(--ease-apple);
+    }
+
+    .nav-links a:hover {
+      color: var(--cane-glow);
+    }
+
+    .header-action-btn {
+      background: var(--glass-panel-light);
+      border: 1px solid var(--glass-border);
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #ffffff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s var(--ease-apple);
+    }
+
+    .header-action-btn:hover {
+      border-color: var(--cane-glow);
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), 0 0 25px rgba(52, 211, 153, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Showcase */
+    .hero-container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 7.5rem 1.5rem 3rem;
+      text-align: center;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .carousel-dock {
+      position: relative;
+      width: 100%;
+      max-width: 1240px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .nav-arrow-btn {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      border-radius: 50%;
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 25;
+      transition: all 0.3s var(--ease-spring);
+    }
+
+    .nav-arrow-btn:hover {
+      border-color: var(--cane-glow);
+      background: rgba(16, 185, 129, 0.35);
+      transform: scale(1.14);
+      box-shadow: 0 0 30px rgba(52, 211, 153, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-arrow-btn:active {
+      transform: scale(0.92);
+    }
+
+    .side-card {
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      border-radius: 26px;
+      padding: 1.25rem 1rem;
+      width: 205px;
+      cursor: pointer;
+      opacity: 0.75;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.4s var(--ease-apple);
+    }
+
+    .side-card:hover {
+      opacity: 1;
+      transform: scale(1.05) translateY(-4px);
+      border-color: var(--cane-glow);
+      box-shadow: 0 0 25px rgba(52, 211, 153, 0.35), var(--glass-specular);
+    }
+
+    .side-mini-portal {
+      width: 75px;
+      height: 75px;
+      border-radius: 20px;
+      background: #062b18;
+      border: 1.5px solid var(--cane-glow);
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .side-card-name {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .center-stage {
+      position: relative;
+      flex: 1;
+      max-width: 660px;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .center-halo {
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.4) 0%, rgba(16, 185, 129, 0.12) 55%, transparent 75%);
+      filter: blur(40px);
+      z-index: -1;
+      pointer-events: none;
+      animation: pulseAura 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseAura {
+      0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+      100% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+    }
+
+    /* Split-Assemble Apple-Style Stalk Portal */
+    .split-portal-box {
+      position: relative;
+      width: 250px;
+      height: 270px;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stalk-assembly {
+      position: relative;
+      width: 160px;
+      height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s var(--ease-spring);
+    }
+
+    .seg-crown {
+      position: relative;
+      z-index: 5;
+      transition: transform 0.65s var(--ease-spring), opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    .seg-upper {
+      position: relative;
+      margin-top: -8px;
+      z-index: 4;
+      transition: transform 0.65s var(--ease-spring), opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    .seg-mid {
+      position: relative;
+      margin-top: -6px;
+      z-index: 3;
+      transition: transform 0.65s var(--ease-spring), opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    .seg-base {
+      position: relative;
+      margin-top: -6px;
+      z-index: 2;
+      transition: transform 0.65s var(--ease-spring), opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    /* Splitting Animation */
+    .is-splitting .seg-crown {
+      transform: translateY(-90px) scale(0.85) rotate(-8deg);
+      opacity: 0;
+    }
+    .is-splitting .seg-upper {
+      transform: translateY(-40px) scale(0.9);
+      opacity: 0.2;
+    }
+    .is-splitting .seg-mid {
+      transform: scale(0.8) rotate(6deg);
+      opacity: 0.2;
+    }
+    .is-splitting .seg-base {
+      transform: translateY(90px) scale(0.85) rotate(8deg);
+      opacity: 0;
+    }
+
+    /* Exploded Anatomy View */
+    .is-exploded .seg-crown {
+      transform: translateY(-45px);
+    }
+    .is-exploded .seg-upper {
+      transform: translateY(-15px);
+    }
+    .is-exploded .seg-mid {
+      transform: translateY(15px);
+    }
+    .is-exploded .seg-base {
+      transform: translateY(45px);
+    }
+
+    .anatomy-label-pill {
+      position: absolute;
+      background: rgba(8, 38, 22, 0.92);
+      border: 1px solid var(--cane-glow);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(52, 211, 153, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s var(--ease-spring);
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .is-exploded .anatomy-label-pill {
+      opacity: 1;
+    }
+
+    .pill-crown { top: 10px; right: -75px; }
+    .pill-node  { top: 95px; left: -85px; }
+    .pill-pith  { top: 155px; right: -85px; }
+    .pill-base  { bottom: 15px; left: -75px; }
+
+    .explode-toggle-btn {
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      color: var(--cane-light);
+      box-shadow: var(--glass-specular);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.3s var(--ease-apple);
+    }
+
+    .explode-toggle-btn:hover {
+      border-color: var(--cane-glow);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    .tag-bubble {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cane-glow);
+      margin-bottom: 0.35rem;
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 0.25rem 0.9rem;
+      border-radius: 9999px;
+    }
+
+    .main-title {
+      font-family: var(--font-display);
+      font-size: 3.4rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+      letter-spacing: 1px;
+      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.45);
+      transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+
+    .main-botanical {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--cane-light);
+      font-size: 1.25rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .main-desc {
+      color: #e2e8f0;
+      font-size: 1rem;
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 1.5rem;
+    }
+
+    .specs-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .spec-badge {
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      border-radius: 9999px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .spec-badge .badge-metric {
+      color: var(--cane-glow);
+      font-weight: 700;
+    }
+
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .primary-glass-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45), inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+      padding: 0.95rem 2.4rem;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.3s var(--ease-spring);
+    }
+
+    .primary-glass-btn:hover {
+      box-shadow: 0 12px 35px rgba(52, 211, 153, 0.65), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .audio-glass-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-spring);
+    }
+
+    .audio-glass-btn:hover {
+      border-color: var(--cane-glow);
+      background: rgba(52, 211, 153, 0.28);
+      transform: scale(1.12);
+    }
+
+    .dots-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.75rem;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.4s var(--ease-apple);
+    }
+
+    .nav-dot.active {
+      width: 36px;
+      border-radius: 9999px;
+      background: var(--cane-glow);
+      box-shadow: 0 0 15px var(--cane-glow);
+    }
+
+    /* Dossier Modal */
+    .modal-veil {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(2, 10, 5, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 300;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-veil.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .liquid-modal-panel {
+      background: rgba(10, 42, 26, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 0 0 40px rgba(52, 211, 153, 0.25);
+      border-radius: 32px;
+      max-width: 750px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.4s var(--ease-spring);
+    }
+
+    .modal-veil.active .liquid-modal-panel {
+      transform: scale(1) translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: all 0.25s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(239, 68, 68, 0.7);
+      transform: rotate(90deg);
+    }
+
+    /* Section Styling */
+    section {
+      position: relative;
+      z-index: 10;
+      padding: 6.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sec-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .sec-tagline {
+      color: var(--cane-glow);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .sec-heading {
+      font-family: var(--font-display);
+      font-size: 2.85rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    /* Climate Deck */
+    .climate-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .glass-card {
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      border-radius: 26px;
+      padding: 2.25rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 0.4s var(--ease-spring), border-color 0.4s, box-shadow 0.4s;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--cane-glow);
+      box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3), var(--glass-specular);
+    }
+
+    .card-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: rgba(16, 185, 129, 0.22);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--cane-glow);
+    }
+
+    .glass-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+
+    .glass-card p {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .exam-highlight {
+      margin-top: 1.25rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed rgba(52, 211, 153, 0.25);
+      font-size: 0.82rem;
+      color: var(--accent-gold);
+    }
+
+    /* Comparison Box */
+    .table-container {
+      background: var(--glass-panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      border-radius: 28px;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .glass-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .glass-table th, .glass-table td {
+      padding: 1.35rem 1.65rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-table th {
+      background: rgba(16, 185, 129, 0.28);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: #ffffff;
+    }
+
+    .glass-table tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .factor-header {
+      font-weight: 700;
+      color: var(--cane-glow);
+      width: 25%;
+    }
+
+    /* Process Flow */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .flow-card {
+      background: rgba(16, 52, 34, 0.55);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      border-radius: 22px;
+      padding: 2rem;
+      position: relative;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.4s var(--ease-spring), border-color 0.4s;
+    }
+
+    .flow-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cane-glow);
+    }
+
+    .flow-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: rgba(52, 211, 153, 0.35);
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+    }
+
+    /* By-products */
+    .byproducts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .byproduct-card {
+      background: linear-gradient(145deg, rgba(18, 56, 36, 0.75), rgba(10, 32, 20, 0.92));
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-specular);
+      border-radius: 22px;
+      padding: 1.85rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .byproduct-card h4 {
+      color: var(--accent-gold);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Quiz Box */
+    .quiz-box {
+      background: var(--glass-panel);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: var(--glass-specular), 0 0 35px rgba(52, 211, 153, 0.2);
+      border-radius: 30px;
+      padding: 2.75rem;
+      max-width: 820px;
+      margin: 0 auto;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .quiz-q {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1.75rem;
+      color: #fff;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .opt-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 1.15rem 1.45rem;
+      color: #ffffff;
+      text-align: left;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: all 0.25s var(--ease-spring);
+    }
+
+    .opt-btn:hover {
+      background: rgba(52, 211, 153, 0.25);
+      border-color: var(--cane-glow);
+      transform: translateX(4px);
+    }
+
+    .opt-btn.correct {
+      background: rgba(16, 185, 129, 0.5) !important;
+      border-color: #10b981 !important;
+      color: #a7f3d0;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.45) !important;
+      border-color: #ef4444 !important;
+      color: #fca5a5;
+    }
+
+    .quiz-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4.5rem 2rem 2.5rem;
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      header {
+        padding: 0.9rem 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .side-card {
+        display: none;
+      }
+      .main-title {
+        font-size: 2.4rem;
+      }
+      .split-portal-box {
+        width: 210px;
+        height: 230px;
+      }
+      .nav-arrow-btn {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+      }
+      .table-container {
+        overflow-x: auto;
+      }
+      .glass-table {
+        min-width: 580px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-canvas" id="ambientCanvas"></div>
+
+  <!-- Liquid Glass Header: By Ryan and Adarsh -->
+  <header>
+    <div class="brand-block">
+      <div class="authors-row">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5">
+          <path d="M12 2v20M8 5h8M7 10h10M8 15h8M9 19h6"/>
+        </svg>
+        <span>By Ryan and Adarsh</span>
+        <span class="project-pill">Class 10</span>
+      </div>
+      <span class="project-subtitle">Social Science &bull; Agriculture: Sugarcane</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#varieties">Varieties</a></li>
+      <li><a href="#climate">Climate & Soil</a></li>
+      <li><a href="#comparison">North vs South</a></li>
+      <li><a href="#byproducts">By-Products</a></li>
+      <li><a href="#quiz">Class 10 Quiz</a></li>
+    </ul>
+
+    <button class="header-action-btn" onclick="document.getElementById('quiz').scrollIntoView();">
+      <span>Take Quiz</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Hero Carousel: Apple-Style Split-Assemble Showcase -->
+  <div class="hero-container" id="varieties">
+    <div class="carousel-dock">
+      
+      <!-- Left Navigation Arrow Button -->
+      <button class="nav-arrow-btn" onclick="prevVariety()" aria-label="Previous Variety" title="Previous Variety">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3">
+          <polyline points="15 19 8 12 15 5"></polyline>
+        </svg>
+      </button>
+
+      <!-- Left Flank Preview Card -->
+      <div class="side-card" onclick="prevVariety()">
+        <div class="side-mini-portal" id="leftSvgPortal"></div>
+        <div class="side-card-name" id="leftCardName">Wild Kans</div>
+        <small style="color:var(--cane-glow); font-size:0.75rem; letter-spacing:1px;">&larr; PREV</small>
+      </div>
+
+      <!-- Center Featured Stage with Split-Assemble Stalk -->
+      <div class="center-stage" id="touchArea">
+        <div class="center-halo"></div>
+
+        <!-- Exploded View Anatomy Toggle -->
+        <button class="explode-toggle-btn" id="explodeBtn" onclick="toggleExplodedView()" title="Toggle Exploded Botanical View">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span id="explodeBtnText">Deconstruct Anatomy (Exploded View)</span>
+        </button>
+
+        <!-- The Interactive Split & Assemble Stalk Visualizer -->
+        <div class="split-portal-box" id="stalkPortal" onclick="openDossier()" title="Click to open full agronomic dossier">
+          <div class="stalk-assembly" id="stalkAssembly">
+            
+            <!-- Anatomy Callout Badges -->
+            <div class="anatomy-label-pill pill-crown">Leaf Crown & Meristem</div>
+            <div class="anatomy-label-pill pill-node">Bud & Node Ring</div>
+            <div class="anatomy-label-pill pill-pith">Sucrose Pith (14-17%)</div>
+            <div class="anatomy-label-pill pill-base">Ratoon Root Base</div>
+
+            <!-- Segment 1: Crown Foliage -->
+            <div class="seg-crown" id="segCrown"></div>
+
+            <!-- Segment 2: Upper Node & Internode -->
+            <div class="seg-upper" id="segUpper"></div>
+
+            <!-- Segment 3: Middle Internode with Cross-Section Pith -->
+            <div class="seg-mid" id="segMid"></div>
+
+            <!-- Segment 4: Base Root & Eye Buds -->
+            <div class="seg-base" id="segBase"></div>
+
+          </div>
+        </div>
+
+        <div class="tag-bubble" id="tagBubble">TROPICAL NOBLE CANE</div>
+        <h1 class="main-title" id="mainTitle">NOBLE CANE</h1>
+        <div class="main-botanical" id="mainBotanical">Saccharum officinarum</div>
+        <p class="main-desc" id="mainDesc">
+          Thick, juicy tropical stalks containing the world's highest sucrose concentration. Cultivated in the frost-free maritime climate of Peninsular India.
+        </p>
+
+        <!-- Specs Badges -->
+        <div class="specs-strip">
+          <div class="spec-badge"><span>Sucrose:</span> <span class="badge-metric" id="specSucrose">14% – 17%</span></div>
+          <div class="spec-badge"><span>Primary Belt:</span> <span class="badge-metric" id="specBelt">Peninsular India</span></div>
+          <div class="spec-badge"><span>Stalk Thickness:</span> <span class="badge-metric" id="specThickness">Thick (3.5 – 5 cm)</span></div>
+          <div class="spec-badge"><span>Frost Tolerance:</span> <span class="badge-metric" id="specFrost">Low (Tropical)</span></div>
+        </div>
+
+        <!-- Action Row -->
+        <div class="action-row">
+          <button class="primary-glass-btn" onclick="openDossier()">
+            <span>EXPLORE DOSSIER</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <button class="audio-glass-btn" title="Pronounce Botanical Latin" onclick="pronounceBotanical()">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Right Flank Preview Card -->
+      <div class="side-card" onclick="nextVariety()">
+        <div class="side-mini-portal" id="rightSvgPortal"></div>
+        <div class="side-card-name" id="rightCardName">North Indian</div>
+        <small style="color:var(--cane-glow); font-size:0.75rem; letter-spacing:1px;">NEXT &rarr;</small>
+      </div>
+
+      <!-- Right Navigation Arrow Button -->
+      <button class="nav-arrow-btn" onclick="nextVariety()" aria-label="Next Variety" title="Next Variety">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3">
+          <polyline points="9 5 16 12 9 19"></polyline>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="dots-wrapper" id="dotsStrip"></div>
+    <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.65rem; letter-spacing:1px;">
+      &bull; Click arrows, swipe, or use keyboard &larr; / &rarr; keys to browse &bull;
+    </div>
+  </div>
+
+  <!-- Dossier Modal (Liquid Glass) -->
+  <div class="modal-veil" id="dossierModal">
+    <div class="liquid-modal-panel">
+      <button class="close-btn" onclick="closeDossier()">&times;</button>
+      <div class="sec-tagline">BOTANICAL & AGRONOMIC DOSSIER</div>
+      <h2 style="font-family: var(--font-display); font-size: 2.3rem; color:#fff; margin-bottom: 0.25rem;" id="modalName">Noble Cane</h2>
+      <p style="font-family: var(--font-serif); font-style:italic; color: var(--cane-light); margin-bottom: 1.5rem;" id="modalLatin">Saccharum officinarum</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+          <div style="font-size:0.8rem; color:var(--text-dim);">Average Stalk Yield</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--cane-glow);" id="modalYield">90 - 120 t/ha</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+          <div style="font-size:0.8rem; color:var(--text-dim);">Sugar Recovery Rate</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--cane-glow);" id="modalRecovery">11.5% - 13.0%</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+          <div style="font-size:0.8rem; color:var(--text-dim);">Fiber Hardness</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--accent-gold);" id="modalFibre">10% - 12% (Soft)</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color:#fff; margin-bottom: 0.4rem; font-family: var(--font-display);">Origin & Domestication</h4>
+        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6;" id="modalOrigin">
+          Originally domesticated in New Guinea; named 'Noble' for its giant thick stalks and rich sweet juice. Spread to India to become the foundation of commercial sugar.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="color:#fff; margin-bottom: 0.4rem; font-family: var(--font-display);">Class 10 Board Exam Concept</h4>
+        <p style="color:#f1f5f9; font-size:0.95rem; line-height:1.6; background: rgba(16, 185, 129, 0.15); border-left: 4px solid var(--cane-green); padding: 0.85rem 1.1rem; border-radius: 0 12px 12px 0;" id="modalExamTip">
+          This tropical variety requires a maritime climate without winter frost, providing the direct geographic rationale for why sugar mills flourish in Maharashtra and South India.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1: Climatic Requirements (Class 10 Core) -->
+  <section id="climate">
+    <div class="sec-header">
+      <div class="sec-tagline">GEOGRAPHICAL CRITERIA</div>
+      <h2 class="sec-heading">Ideal Growing Conditions</h2>
+      <p style="color: var(--text-dim); max-width:620px; margin: 0.5rem auto 0;">Sugarcane requires 10 to 18 months of intensive warmth, sunlight, and moisture to mature.</p>
+    </div>
+
+    <div class="climate-deck">
+      <div class="glass-card">
+        <div class="card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+          </svg>
+        </div>
+        <h3>Temperature</h3>
+        <p>Demands a hot and humid climate with steady temperatures between <strong>21°C and 27°C</strong>.</p>
+        <div class="exam-highlight">Board Tip: Temperatures below 20°C retard growth; severe winter frost destroys seedlings completely.</div>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"/>
+            <path d="M16 14v6M8 14v6M12 16v6"/>
+          </svg>
+        </div>
+        <h3>Annual Rainfall</h3>
+        <p>Requires an annual rainfall of <strong>75 cm to 100 cm</strong> evenly distributed across its vegetative cycle.</p>
+        <div class="exam-highlight">Board Tip: Dry tracts in Punjab, Haryana, and Western UP rely extensively on canal and tubewell irrigation.</div>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11M8 14v7M12 14v7M16 14v7"/>
+          </svg>
+        </div>
+        <h3>Soil Suitability</h3>
+        <p>Thrives in deep, rich, well-drained loamy, alluvial, or black lava soils that retain moisture without logging.</p>
+        <div class="exam-highlight">Board Tip: Heavy manure and chemical fertilizers (N-P-K) are needed as sugarcane exhausts the soil rapidly.</div>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          </svg>
+        </div>
+        <h3>Ripening Sunshine</h3>
+        <p>Clear skies and sunny days with cool nights before harvest are vital for maximum sucrose crystallization.</p>
+        <div class="exam-highlight">Board Tip: Excessive late rain before harvest dilutes the juice and drops sugar mill recovery rates.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: North vs South Comparison -->
+  <section id="comparison">
+    <div class="sec-header">
+      <div class="sec-tagline">REGIONAL DYNAMICS</div>
+      <h2 class="sec-heading">Sugar Industry Shift: North vs South</h2>
+      <p style="color: var(--text-dim); max-width:660px; margin: 0.5rem auto 0;">Core Class 10 Geography Board Topic: Why are sugar mills expanding rapidly into Peninsular South India?</p>
+    </div>
+
+    <div class="table-container">
+      <table class="glass-table">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Northern Belt (UP, Bihar, Punjab)</th>
+            <th>Southern Peninsular Belt (Maharashtra, TN, Karnataka)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="factor-header">Climate & Weather</td>
+            <td>Subtropical climate with severe winter frost and extreme summer dry heat (Loo) that hinder cane growth.</td>
+            <td>Equable maritime tropical climate without winter frost; year-round sunshine and humidity.</td>
+          </tr>
+          <tr>
+            <td class="factor-header">Sucrose Yield</td>
+            <td>Comparatively lower sucrose percentage due to shorter maturation windows and temperature fluctuations.</td>
+            <td>Significantly higher sucrose concentration leading to superior sugar output per tonne of cane.</td>
+          </tr>
+          <tr>
+            <td class="factor-header">Crushing Window</td>
+            <td>Short crushing season of only <strong>4 to 5 months</strong> (November to March).</td>
+            <td>Long crushing season lasting <strong>7 to 8 months</strong> (October to May/June).</td>
+          </tr>
+          <tr>
+            <td class="factor-header">Hectare Yield</td>
+            <td>Moderate stalk yield per hectare (typically 60–70 tonnes/ha).</td>
+            <td>High stalk yield per hectare (exceeding 90–115 tonnes/ha in canal tracts).</td>
+          </tr>
+          <tr>
+            <td class="factor-header">Mill Structure</td>
+            <td>Predominantly older, privately owned mills facing logistical delays.</td>
+            <td>Modern sugar mills operated under thriving farmer-run <strong>cooperative societies</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 3: Processing & By-Products -->
+  <section id="byproducts">
+    <div class="sec-header">
+      <div class="sec-tagline">CIRCULAR ZERO-WASTE BIO-ECONOMY</div>
+      <h2 class="sec-heading">Processing & Industrial By-Products</h2>
+      <p style="color: var(--text-dim); max-width:620px; margin: 0.5rem auto 0;">In the modern sugar economy, every single fraction of the sugarcane stalk is utilized.</p>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-card">
+        <span class="flow-number">01</span>
+        <h3 style="color:#fff; margin-bottom: 0.4rem; font-family:var(--font-display);">Sett Planting</h3>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Mature stalk cuttings (setts) with 2–3 active eye buds are planted in treated furrows.</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-number">02</span>
+        <h3 style="color:#fff; margin-bottom: 0.4rem; font-family:var(--font-display);">Ratoon Cropping</h3>
+        <p style="color:#cbd5e1; font-size:0.92rem;">After harvesting, the underground roots sprout a second (ratoon) crop, saving seed and tillage costs.</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-number">03</span>
+        <h3 style="color:#fff; margin-bottom: 0.4rem; font-family:var(--font-display);">24-Hour Crushing</h3>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Canes must reach mills within <strong>24–48 hours</strong>; delays trigger rapid sucrose inversion into glucose.</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-number">04</span>
+        <h3 style="color:#fff; margin-bottom: 0.4rem; font-family:var(--font-display);">Crystallization</h3>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Raw juice is clarified with lime, concentrated in vacuum evaporators, and crystallized into pure sugar.</p>
+      </div>
+    </div>
+
+    <div class="byproducts-grid">
+      <div class="byproduct-card">
+        <h4>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          Molasses & Bioethanol
+        </h4>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Dark residual syrup distilled into industrial alcohol and <strong>bioethanol for India's 20% petrol blending (E20)</strong> program.</p>
+      </div>
+
+      <div class="byproduct-card">
+        <h4>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          Bagasse Cogeneration
+        </h4>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Dry fibrous crushed stalk burned in sugar mill boilers for <strong>green thermal & electric power</strong>, and manufactured into paper packaging.</p>
+      </div>
+
+      <div class="byproduct-card">
+        <h4>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 3a9 9 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          Press Mud Compost
+        </h4>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Organic filter cake containing phosphorus and calcium. Returned to agricultural fields as natural fertilizer and used for industrial wax.</p>
+      </div>
+
+      <div class="byproduct-card">
+        <h4>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+          </svg>
+          Jaggery (Gur) & Khandsari
+        </h4>
+        <p style="color:#cbd5e1; font-size:0.92rem;">Traditional unrefined artisanal sweeteners rich in minerals (iron, magnesium), powering widespread cottage employment in rural India.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Interactive Class 10 Quiz -->
+  <section id="quiz">
+    <div class="sec-header">
+      <div class="sec-tagline">BOARD REVISION</div>
+      <h2 class="sec-heading">Class 10 Agriculture Quiz</h2>
+      <p style="color: var(--text-dim);">Test your recall on the most frequently asked sugarcane questions.</p>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-q" id="quizQuestion">Loading question...</div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-foot">
+        <span style="color:var(--text-dim); font-size:0.85rem;" id="quizCounter">Question 1 of 4</span>
+        <button class="primary-glass-btn" id="nextQuizBtn" onclick="nextQuizQuestion()" style="display:none; padding:0.6rem 1.6rem; font-size:0.85rem;">Next Question</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p style="font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Created by Ryan and Adarsh &bull; Class 10 Project</p>
+    <p>Social Science (Geography) &bull; Agriculture: Sugarcane &bull; Liquid Glass Architecture</p>
+  </footer>
+
+  <script>
+    // Species Themes and Vector Stalk Layers
+    const speciesThemes = [
+      {
+        id: "noble",
+        name: "NOBLE CANE",
+        botanical: "Saccharum officinarum",
+        tag: "TROPICAL SWEET GIANT",
+        desc: "The true tropical cane featuring thick, juicy purple-green stalks loaded with high sucrose juice. Forms the backbone of high-recovery sugar mills across Peninsular India.",
+        sucrose: "14% – 17%",
+        belt: "Peninsular India (Maha / TN)",
+        thickness: "Thick (3.5 – 5 cm)",
+        frost: "Low (Tropical)",
+        yield: "90 – 120 tonnes/ha",
+        recovery: "11.5% – 13.0%",
+        fibre: "10% – 12% (Soft Cane)",
+        origin: "Domesticated in New Guinea thousands of years ago; named 'Noble' for its giant thick stalks, purple-violet nodes, and sweet juice.",
+        examTip: "Explains why sugar mills in Maharashtra and South India yield higher sugar percentages than Northern mills.",
+        crownSvg: `<svg width="150" height="70" viewBox="0 0 150 70" fill="none">
+          <path d="M75 65 C45 35 15 25 0 15 C25 20 55 35 75 65" fill="#10b981" opacity="0.9"/>
+          <path d="M75 65 C105 35 135 25 150 15 C125 20 95 35 75 65" fill="#34d399" opacity="0.9"/>
+          <path d="M75 65 C60 25 65 5 75 0 C85 5 90 25 75 65" fill="#059669"/>
+        </svg>`,
+        upperSvg: `<svg width="80" height="60" viewBox="0 0 80 60" fill="none">
+          <rect x="15" y="5" width="50" height="50" rx="8" fill="url(#gradNobleUpper)" stroke="#6b21a8" stroke-width="1.5"/>
+          <ellipse cx="40" cy="5" rx="25" ry="4" fill="#fbbf24"/>
+          <ellipse cx="40" cy="55" rx="25" ry="4" fill="#fbbf24"/>
+          <circle cx="28" cy="12" r="3.5" fill="#fbbf24"/>
+          <defs>
+            <linearGradient id="gradNobleUpper" x1="15" y1="5" x2="65" y2="55">
+              <stop stop-color="#581c87"/><stop offset="0.6" stop-color="#7c3aed"/><stop offset="1" stop-color="#15803d"/>
+            </linearGradient>
+          </defs>
+        </svg>`,
+        midSvg: `<svg width="84" height="65" viewBox="0 0 84 65" fill="none">
+          <rect x="15" y="5" width="54" height="54" rx="8" fill="url(#gradNobleMid)" stroke="#7e22ce" stroke-width="1.5"/>
+          <ellipse cx="42" cy="5" rx="27" ry="4.5" fill="#f59e0b"/>
+          <ellipse cx="42" cy="58" rx="27" ry="4.5" fill="#f59e0b"/>
+          <ellipse cx="42" cy="32" rx="16" ry="6" fill="#fef08a" opacity="0.85"/>
+          <text x="42" y="35" font-size="8" fill="#713f12" font-weight="bold" text-anchor="middle">SUCROSE PITH</text>
+          <defs>
+            <linearGradient id="gradNobleMid" x1="15" y1="5" x2="69" y2="59">
+              <stop stop-color="#6b21a8"/><stop offset="0.5" stop-color="#10b981"/><stop offset="1" stop-color="#047857"/>
+            </linearGradient>
+          </defs>
+        </svg>`,
+        baseSvg: `<svg width="88" height="65" viewBox="0 0 88 65" fill="none">
+          <rect x="15" y="5" width="58" height="45" rx="8" fill="url(#gradNobleBase)" stroke="#581c87" stroke-width="1.5"/>
+          <ellipse cx="44" cy="5" rx="29" ry="4.5" fill="#f59e0b"/>
+          <path d="M22 50 C20 60 15 65 10 65" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M44 50 C44 58 42 63 38 65" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M66 50 C68 58 72 63 78 65" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="gradNobleBase" x1="15" y1="5" x2="73" y2="50">
+              <stop stop-color="#4c1d95"/><stop offset="0.7" stop-color="#065f46"/>
+            </linearGradient>
+          </defs>
+        </svg>`
+      },
+      {
+        id: "barberi",
+        name: "NORTH INDIAN CANE",
+        botanical: "Saccharum barberi",
+        tag: "SUBTROPICAL HARDY SPECIES",
+        desc: "Adapted to the harsher climate of the Indo-Gangetic plains. Has slender stalks and moderate sucrose, but offers great tolerance against frost and drought.",
+        sucrose: "10% – 12%",
+        belt: "Northern Plains (UP / Bihar / Punjab)",
+        thickness: "Slender (1.5 – 2.5 cm)",
+        frost: "High Tolerance",
+        yield: "55 – 70 tonnes/ha",
+        recovery: "8.5% – 9.8%",
+        fibre: "15% – 17% (Fibrous)",
+        origin: "Indigenous to North India; named after British botanist C.A. Barber who cataloged Indian canes at SBI Coimbatore.",
+        examTip: "Traditional mainstay of Uttar Pradesh. Survives cold northern winter temperatures that would freeze tropical cane.",
+        crownSvg: `<svg width="130" height="65" viewBox="0 0 130 65" fill="none">
+          <path d="M65 60 C40 30 25 15 15 5 C30 12 50 30 65 60" fill="#22c55e" opacity="0.9"/>
+          <path d="M65 60 C90 30 105 15 115 5 C100 12 80 30 65 60" fill="#4ade80" opacity="0.9"/>
+          <path d="M65 60 C58 20 60 5 65 0 C70 5 72 20 65 60" fill="#15803d"/>
+        </svg>`,
+        upperSvg: `<svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <rect x="15" y="5" width="30" height="50" rx="6" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+          <ellipse cx="30" cy="5" rx="15" ry="3.5" fill="#fef08a"/>
+          <ellipse cx="30" cy="55" rx="15" ry="3.5" fill="#fef08a"/>
+          <circle cx="23" cy="12" r="2.5" fill="#fde047"/>
+        </svg>`,
+        midSvg: `<svg width="64" height="65" viewBox="0 0 64 65" fill="none">
+          <rect x="15" y="5" width="34" height="54" rx="6" fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+          <ellipse cx="32" cy="5" rx="17" ry="4" fill="#fde047"/>
+          <ellipse cx="32" cy="58" rx="17" ry="4" fill="#fde047"/>
+          <ellipse cx="32" cy="32" rx="11" ry="5" fill="#fef9c3" opacity="0.85"/>
+          <text x="32" y="35" font-size="7" fill="#713f12" font-weight="bold" text-anchor="middle">FIBROUS</text>
+        </svg>`,
+        baseSvg: `<svg width="68" height="65" viewBox="0 0 68 65" fill="none">
+          <rect x="15" y="5" width="38" height="45" rx="6" fill="#14532d" stroke="#052e16" stroke-width="1.5"/>
+          <ellipse cx="34" cy="5" rx="19" ry="4" fill="#fde047"/>
+          <path d="M22 50 C20 58 16 63 12 65" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
+          <path d="M34 50 C34 57 32 62 28 65" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
+          <path d="M46 50 C48 57 52 62 56 65" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
+        </svg>`
+      },
+      {
+        id: "sinense",
+        name: "CHINESE CANE",
+        botanical: "Saccharum sinense",
+        tag: "HARDY TEMPERATE STRAIN",
+        desc: "A vigorously tillering, slender cane cultivated across central and southern China and Northeast India. Highly fibrous with remarkable resistance to soil salinity.",
+        sucrose: "11% – 13%",
+        belt: "Northeast India & East Asia",
+        thickness: "Slender / Medium (2 cm)",
+        frost: "Moderate Tolerance",
+        yield: "60 – 75 tonnes/ha",
+        recovery: "9.0% – 10.2%",
+        fibre: "14% – 16%",
+        origin: "Cultivated along the Yangtze and Pearl River basins in China; used in breeding programs for cold hardiness.",
+        examTip: "Demonstrates how botanical diversity allows sugarcane crops to adapt outside strict equatorial rainforest zones.",
+        crownSvg: `<svg width="140" height="65" viewBox="0 0 140 65" fill="none">
+          <path d="M70 60 C40 30 15 25 5 15 C25 20 50 35 70 60" fill="#84cc16" opacity="0.9"/>
+          <path d="M70 60 C100 30 125 25 135 15 C115 20 90 35 70 60" fill="#a3e635" opacity="0.9"/>
+          <path d="M70 60 C65 20 68 5 70 0 C72 5 75 20 70 60" fill="#4d7c0f"/>
+        </svg>`,
+        upperSvg: `<svg width="65" height="60" viewBox="0 0 65 60" fill="none">
+          <rect x="15" y="5" width="35" height="50" rx="6" fill="#65a30d" stroke="#365314" stroke-width="1.5"/>
+          <ellipse cx="32" cy="5" rx="17" ry="3.5" fill="#facc15"/>
+          <ellipse cx="32" cy="55" rx="17" ry="3.5" fill="#facc15"/>
+          <circle cx="24" cy="12" r="2.5" fill="#fde047"/>
+        </svg>`,
+        midSvg: `<svg width="68" height="65" viewBox="0 0 68 65" fill="none">
+          <rect x="15" y="5" width="38" height="54" rx="6" fill="#4d7c0f" stroke="#365314" stroke-width="1.5"/>
+          <ellipse cx="34" cy="5" rx="19" ry="4" fill="#facc15"/>
+          <ellipse cx="34" cy="58" rx="19" ry="4" fill="#facc15"/>
+          <ellipse cx="34" cy="32" rx="12" ry="5" fill="#fef08a" opacity="0.85"/>
+          <text x="34" y="35" font-size="7" fill="#713f12" font-weight="bold" text-anchor="middle">HARDY</text>
+        </svg>`,
+        baseSvg: `<svg width="72" height="65" viewBox="0 0 72 65" fill="none">
+          <rect x="15" y="5" width="42" height="45" rx="6" fill="#365314" stroke="#1a2e05" stroke-width="1.5"/>
+          <ellipse cx="36" cy="5" rx="21" ry="4" fill="#facc15"/>
+          <path d="M22 50 C20 58 15 63 10 65" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+          <path d="M36 50 C36 58 33 63 29 65" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+          <path d="M50 50 C52 58 57 63 62 65" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+        </svg>`
+      },
+      {
+        id: "hybrid",
+        name: "WONDER HYBRID Co 0238",
+        botanical: "Saccharum Hybrid (Karan 4)",
+        tag: "INDIA'S REVOLUTIONARY CANE",
+        desc: "Developed by ICAR-Sugarcane Breeding Institute Regional Centre (Karnal), this super-variety revolutionized sugar production in North India by combining northern frost resistance with tropical sucrose.",
+        sucrose: "14.5% – 18%",
+        belt: "Entire Northern & Central Belt",
+        thickness: "Medium Thick (3 cm)",
+        frost: "High Tolerance",
+        yield: "85 – 115 tonnes/ha",
+        recovery: "11.8% – 12.5%",
+        fibre: "12% – 13.5%",
+        origin: "Bred by Dr. Bakshi Ram at ICAR-SBI. The most successful commercial cross in recent Indian agricultural history.",
+        examTip: "Frequently highlighted in modern agricultural case studies as the primary reason for Uttar Pradesh regaining top sugar output.",
+        crownSvg: `<svg width="160" height="70" viewBox="0 0 160 70" fill="none">
+          <path d="M80 65 C45 35 15 25 0 15 C25 20 60 35 80 65" fill="#059669" opacity="0.95"/>
+          <path d="M80 65 C115 35 145 25 160 15 C135 20 100 35 80 65" fill="#10b981" opacity="0.95"/>
+          <path d="M80 65 C72 25 75 5 80 0 C85 5 88 25 80 65" fill="#047857"/>
+        </svg>`,
+        upperSvg: `<svg width="75" height="60" viewBox="0 0 75 60" fill="none">
+          <rect x="15" y="5" width="45" height="50" rx="7" fill="url(#gradHybUpper)" stroke="#047857" stroke-width="1.5"/>
+          <ellipse cx="37" cy="5" rx="22" ry="4" fill="#fbbf24"/>
+          <ellipse cx="37" cy="55" rx="22" ry="4" fill="#fbbf24"/>
+          <circle cx="26" cy="12" r="3" fill="#fde047"/>
+          <defs>
+            <linearGradient id="gradHybUpper" x1="15" y1="5" x2="60" y2="55">
+              <stop stop-color="#10b981"/><stop offset="0.6" stop-color="#059669"/><stop offset="1" stop-color="#0f766e"/>
+            </linearGradient>
+          </defs>
+        </svg>`,
+        midSvg: `<svg width="78" height="65" viewBox="0 0 78 65" fill="none">
+          <rect x="15" y="5" width="48" height="54" rx="7" fill="url(#gradHybMid)" stroke="#047857" stroke-width="1.5"/>
+          <ellipse cx="39" cy="5" rx="24" ry="4" fill="#f59e0b"/>
+          <ellipse cx="39" cy="58" rx="24" ry="4" fill="#f59e0b"/>
+          <ellipse cx="39" cy="32" rx="14" ry="5.5" fill="#fef08a" opacity="0.9"/>
+          <text x="39" y="35" font-size="7.5" fill="#713f12" font-weight="bold" text-anchor="middle">18% SUCROSE</text>
+          <defs>
+            <linearGradient id="gradHybMid" x1="15" y1="5" x2="63" y2="59">
+              <stop stop-color="#34d399"/><stop offset="0.5" stop-color="#10b981"/><stop offset="1" stop-color="#047857"/>
+            </linearGradient>
+          </defs>
+        </svg>`,
+        baseSvg: `<svg width="82" height="65" viewBox="0 0 82 65" fill="none">
+          <rect x="15" y="5" width="52" height="45" rx="7" fill="url(#gradHybBase)" stroke="#064e3b" stroke-width="1.5"/>
+          <ellipse cx="41" cy="5" rx="26" ry="4" fill="#f59e0b"/>
+          <path d="M22 50 C20 58 16 63 12 65" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M41 50 C41 58 39 63 35 65" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M60 50 C62 58 66 63 70 65" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="gradHybBase" x1="15" y1="5" x2="67" y2="50">
+              <stop stop-color="#047857"/><stop offset="1" stop-color="#022c22"/>
+            </linearGradient>
+          </defs>
+        </svg>`
+      },
+      {
+        id: "spontaneum",
+        name: "WILD KANS CANE",
+        botanical: "Saccharum spontaneum",
+        tag: "THE IMMORTAL ANCESTOR",
+        desc: "A wild perennial grass with silvery white flowering plumes and nearly zero commercial sugar, but immune to red rot disease, pests, drought, and waterlogging.",
+        sucrose: "2% – 4% (Wild / Non-commercial)",
+        belt: "Wild riverbanks across India",
+        thickness: "Very Thin (<1.5 cm)",
+        frost: "Extreme Tolerance",
+        yield: "30 – 40 tonnes/ha",
+        recovery: "Negligible",
+        fibre: "Above 25%",
+        origin: "Native across the Indian subcontinent and Himalayas. Used at SBI Coimbatore in 1918 to create the world's first disease-resistant hybrid canes.",
+        examTip: "Shows why wild biodiversity must be conserved as genetic donors against crop epidemics and climate change.",
+        crownSvg: `<svg width="150" height="75" viewBox="0 0 150 75" fill="none">
+          <path d="M75 70 C70 45 60 25 55 10 C62 25 70 45 75 70" fill="#f1f5f9" opacity="0.95"/>
+          <path d="M75 70 C80 45 90 25 95 10 C88 25 80 45 75 70" fill="#ffffff" opacity="0.95"/>
+          <path d="M75 70 C72 30 73 5 75 0 C77 5 78 30 75 70" fill="#e2e8f0"/>
+          <circle cx="75" cy="5" r="4" fill="#ffffff"/>
+          <circle cx="60" cy="15" r="3" fill="#ffffff"/>
+          <circle cx="90" cy="15" r="3" fill="#ffffff"/>
+        </svg>`,
+        upperSvg: `<svg width="50" height="60" viewBox="0 0 50 60" fill="none">
+          <rect x="15" y="5" width="20" height="50" rx="4" fill="#64748b" stroke="#334155" stroke-width="1.5"/>
+          <ellipse cx="25" cy="5" rx="10" ry="3" fill="#cbd5e1"/>
+          <ellipse cx="25" cy="55" rx="10" ry="3" fill="#cbd5e1"/>
+        </svg>`,
+        midSvg: `<svg width="54" height="65" viewBox="0 0 54 65" fill="none">
+          <rect x="15" y="5" width="24" height="54" rx="4" fill="#475569" stroke="#1e293b" stroke-width="1.5"/>
+          <ellipse cx="27" cy="5" rx="12" ry="3.5" fill="#cbd5e1"/>
+          <ellipse cx="27" cy="58" rx="12" ry="3.5" fill="#cbd5e1"/>
+          <ellipse cx="27" cy="32" rx="7" ry="4" fill="#94a3b8" opacity="0.85"/>
+          <text x="27" y="34" font-size="6" fill="#0f172a" font-weight="bold" text-anchor="middle">WILD</text>
+        </svg>`,
+        baseSvg: `<svg width="58" height="65" viewBox="0 0 58 65" fill="none">
+          <rect x="15" y="5" width="28" height="45" rx="4" fill="#334155" stroke="#0f172a" stroke-width="1.5"/>
+          <ellipse cx="29" cy="5" rx="14" ry="3.5" fill="#cbd5e1"/>
+          <path d="M19 50 C17 58 14 63 10 65" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M29 50 C29 58 27 63 24 65" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M39 50 C41 58 44 63 48 65" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+        </svg>`
+      }
+    ];
+
+    let currentIdx = 0;
+    let isExploded = false;
+
+    // DOM Bindings
+    const stalkAssembly = document.getElementById("stalkAssembly");
+    const segCrown = document.getElementById("segCrown");
+    const segUpper = document.getElementById("segUpper");
+    const segMid = document.getElementById("segMid");
+    const segBase = document.getElementById("segBase");
+
+    const mainTitle = document.getElementById("mainTitle");
+    const mainBotanical = document.getElementById("mainBotanical");
+    const tagBubble = document.getElementById("tagBubble");
+    const mainDesc = document.getElementById("mainDesc");
+    const specSucrose = document.getElementById("specSucrose");
+    const specBelt = document.getElementById("specBelt");
+    const specThickness = document.getElementById("specThickness");
+    const specFrost = document.getElementById("specFrost");
+
+    const leftSvgPortal = document.getElementById("leftSvgPortal");
+    const rightSvgPortal = document.getElementById("rightSvgPortal");
+    const leftCardName = document.getElementById("leftCardName");
+    const rightCardName = document.getElementById("rightCardName");
+    const dotsStrip = document.getElementById("dotsStrip");
+
+    // Initialize Dots
+    function initDots() {
+      dotsStrip.innerHTML = "";
+      speciesThemes.forEach((_, idx) => {
+        const d = document.createElement("div");
+        d.className = `nav-dot ${idx === currentIdx ? 'active' : ''}`;
+        d.onclick = () => {
+          if (idx !== currentIdx) {
+            currentIdx = idx;
+            renderStalkWithSplit();
+          }
+        };
+        dotsStrip.appendChild(d);
+      });
+    }
+
+    // Render Stalk with Apple-Keynote Split & Assemble Physics
+    function renderStalkWithSplit() {
+      const v = speciesThemes[currentIdx];
+
+      // Trigger Split Animation
+      stalkAssembly.classList.add("is-splitting");
+      mainTitle.style.opacity = "0";
+      mainTitle.style.transform = "translateY(15px)";
+
+      setTimeout(() => {
+        // Swap SVG markup for all segments
+        segCrown.innerHTML = v.crownSvg;
+        segUpper.innerHTML = v.upperSvg;
+        segMid.innerHTML = v.midSvg;
+        segBase.innerHTML = v.baseSvg;
+
+        // Update Text
+        mainTitle.textContent = v.name;
+        mainBotanical.textContent = v.botanical;
+        tagBubble.textContent = v.tag;
+        mainDesc.textContent = v.desc;
+        specSucrose.textContent = v.sucrose;
+        specBelt.textContent = v.belt;
+        specThickness.textContent = v.thickness;
+        specFrost.textContent = v.frost;
+
+        // Update Flanks
+        const prevIdx = (currentIdx - 1 + speciesThemes.length) % speciesThemes.length;
+        const nextIdx = (currentIdx + 1) % speciesThemes.length;
+
+        leftCardName.textContent = speciesThemes[prevIdx].name;
+        leftSvgPortal.innerHTML = speciesThemes[prevIdx].upperSvg;
+
+        rightCardName.textContent = speciesThemes[nextIdx].name;
+        rightSvgPortal.innerHTML = speciesThemes[nextIdx].upperSvg;
+
+        initDots();
+
+        // Snap & Fuse segments together (Spring assembly)
+        setTimeout(() => {
+          stalkAssembly.classList.remove("is-splitting");
+          mainTitle.style.opacity = "1";
+          mainTitle.style.transform = "translateY(0)";
+        }, 60);
+
+      }, 240);
+    }
+
+    function nextVariety() {
+      currentIdx = (currentIdx + 1) % speciesThemes.length;
+      renderStalkWithSplit();
+    }
+
+    function prevVariety() {
+      currentIdx = (currentIdx - 1 + speciesThemes.length) % speciesThemes.length;
+      renderStalkWithSplit();
+    }
+
+    // Toggle Exploded View Anatomy
+    function toggleExplodedView() {
+      isExploded = !isExploded;
+      const btnText = document.getElementById("explodeBtnText");
+      if (isExploded) {
+        stalkAssembly.classList.add("is-exploded");
+        btnText.textContent = "Assemble Stalk (Normal View)";
+      } else {
+        stalkAssembly.classList.remove("is-exploded");
+        btnText.textContent = "Deconstruct Anatomy (Exploded View)";
+      }
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") nextVariety();
+      if (e.key === "ArrowLeft") prevVariety();
+      if (e.key === "Escape") closeDossier();
+    });
+
+    // Touch Swipe Detection
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const touchArea = document.getElementById("touchArea");
+
+    touchArea.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    touchArea.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX - touchStartX > 40) prevVariety();
+      if (touchStartX - touchEndX > 40) nextVariety();
+    }, { passive: true });
+
+    // Dossier Modal
+    function openDossier() {
+      const v = speciesThemes[currentIdx];
+      document.getElementById("modalName").textContent = v.name;
+      document.getElementById("modalLatin").textContent = v.botanical;
+      document.getElementById("modalYield").textContent = v.yield;
+      document.getElementById("modalRecovery").textContent = v.recovery;
+      document.getElementById("modalFibre").textContent = v.fibre;
+      document.getElementById("modalOrigin").textContent = v.origin;
+      document.getElementById("modalExamTip").textContent = v.examTip;
+      document.getElementById("dossierModal").classList.add("active");
+    }
+
+    function closeDossier() {
+      document.getElementById("dossierModal").classList.remove("active");
+    }
+
+    // Botanical Pronunciation
+    function pronounceBotanical() {
+      const v = speciesThemes[currentIdx];
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(v.botanical);
+        u.rate = 0.85;
+        window.speechSynthesis.speak(u);
+      } else {
+        alert(v.botanical);
+      }
+    }
+
+    // Lively Dynamic Green Palette Shift (Brighter, Radiant Agricultural Tones)
+    window.addEventListener("scroll", () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScroll <= 0) return;
+      const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+
+      // Shifting between lively lush sugarcane greens:
+      let r, g, b;
+      if (ratio < 0.5) {
+        const t = ratio / 0.5;
+        r = Math.round(12 + (20 - 12) * t);
+        g = Math.round(51 + (84 - 51) * t);
+        b = Math.round(32 + (54 - 32) * t);
+      } else {
+        const t = (ratio - 0.5) / 0.5;
+        r = Math.round(20 + (14 - 20) * t);
+        g = Math.round(84 + (62 - 84) * t);
+        b = Math.round(54 + (40 - 54) * t);
+      }
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }, { passive: true });
+
+    // Class 10 Board Revision Quiz
+    const quizDataset = [
+      {
+        question: "What is the optimal temperature range required for commercial sugarcane cultivation?",
+        options: ["10°C to 15°C", "21°C to 27°C", "35°C to 45°C", "15°C to 18°C"],
+        answer: 1
+      },
+      {
+        question: "Why is the Indian sugar industry shifting southwards into the Peninsular region?",
+        options: [
+          "Agricultural wages are much lower than in Uttar Pradesh",
+          "Maritime climate prevents frost, ensures higher sucrose, and extends the crushing season to 7–8 months",
+          "There is no canal irrigation in North India",
+          "North India cannot cultivate cereal crops"
+        ],
+        answer: 1
+      },
+      {
+        question: "Why must freshly harvested sugarcane stalks be crushed within 24 to 48 hours?",
+        options: [
+          "To stop roots from sprouting in storage",
+          "To prevent sucrose from inverting into glucose, which decreases crystal white sugar recovery",
+          "To avoid bagasse catching fire",
+          "To reduce transportation vehicle fuel"
+        ],
+        answer: 1
+      },
+      {
+        question: "How is the by-product 'Bagasse' primarily utilized in modern sugar mills?",
+        options: [
+          "Used as direct chemical pesticide in orchards",
+          "Burned in captive mill boilers for electricity cogeneration and used for paper pulp manufacture",
+          "Distilled into vinegar",
+          "Applied to purify drinking water"
+        ],
+        answer: 1
+      }
+    ];
+
+    let currentQIndex = 0;
+    let quizScore = 0;
+
+    function renderQuiz() {
+      const q = quizDataset[currentQIndex];
+      document.getElementById("quizQuestion").textContent = `${currentQIndex + 1}. ${q.question}`;
+      document.getElementById("quizCounter").textContent = `Question ${currentQIndex + 1} of ${quizDataset.length}`;
+      const optsContainer = document.getElementById("quizOptions");
+      optsContainer.innerHTML = "";
+      document.getElementById("nextQuizBtn").style.display = "none";
+
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "opt-btn";
+        btn.textContent = optText;
+        btn.onclick = () => selectQuizAnswer(idx, btn);
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    function selectQuizAnswer(idx, btnElement) {
+      const q = quizDataset[currentQIndex];
+      const allBtns = document.querySelectorAll(".opt-btn");
+      allBtns.forEach(b => b.style.pointerEvents = "none");
+
+      if (idx === q.answer) {
+        btnElement.classList.add("correct");
+        quizScore++;
+      } else {
+        btnElement.classList.add("wrong");
+        allBtns[q.answer].classList.add("correct");
+      }
+
+      document.getElementById("nextQuizBtn").style.display = "inline-flex";
+    }
+
+    function nextQuizQuestion() {
+      currentQIndex++;
+      if (currentQIndex < quizDataset.length) {
+        renderQuiz();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      document.getElementById("quizQuestion").textContent = `Quiz Completed! Your Score: ${quizScore} / ${quizDataset.length}`;
+      document.getElementById("quizOptions").innerHTML = `
+        <div style="background:rgba(52,211,153,0.18); border:1px solid rgba(52,211,153,0.35); padding:1.5rem; border-radius:18px; color:var(--cane-light); font-size:1.1rem; line-height:1.6;">
+          ${quizScore === quizDataset.length ? "Outstanding performance! You have mastered the Class 10 Sugarcane Agriculture topic." : "Good effort! Review the North vs South comparison matrix and climatic criteria above to secure full marks."}
+        </div>
+      `;
+      document.getElementById("quizCounter").textContent = "Revision Completed";
+      const nextBtn = document.getElementById("nextQuizBtn");
+      nextBtn.textContent = "Restart Quiz";
+      nextBtn.onclick = () => {
+        currentQIndex = 0;
+        quizScore = 0;
+        nextBtn.textContent = "Next Question";
+        renderQuiz();
+      };
+      nextBtn.style.display = "inline-flex";
+    }
+
+    // Run on startup
+    initDots();
+    renderStalkWithSplit();
+    renderQuiz();
+  </script>
+</body>
+</html>
